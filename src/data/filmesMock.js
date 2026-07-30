@@ -1,0 +1,163 @@
+import cassinoImg from "../assets/cassino.png";
+import mulhollandImg from "../assets/mulholland.png";
+import shutterImg from "../assets/shutter.png"
+import tokyoImg from "../assets/tokyoDrift.png";
+import conjuring3Img from "../assets/conjuring3.png";
+import pulpImg from "../assets/pulp.png";
+import hollywoodImg from "../assets/onceuponatime.png";
+import americanImg from "../assets/americanpie.png";
+import inceptionImg from "../assets/inception.png";
+import turtlesImg from "../assets/turtles.png";
+import evilImg from "../assets/evildead.png";
+import theothersImg from "../assets/theothers.png";
+
+export const todosOsFilmes = [
+  {
+    id: 1,
+    titulo: "Cassino",
+    poster: cassinoImg,
+    diretor: "Martin Scorsese",
+    ano: 1995,
+    favorito: true,
+    naWatchlist: false,
+    watched: true,
+    avaliacao: null,
+  },
+  {
+    id: 2,
+    titulo: "Mulholland Drive",
+    poster: mulhollandImg,
+    diretor: "David Lynch",
+    ano: 2001,
+    favorito: true,
+    naWatchlist: false,
+    watched: true,
+    avaliacao: null,
+  },
+  {
+    id: 3,
+    titulo: "Shutter Island",
+    poster: shutterImg,
+    diretor: "Martin Scorsese",
+    ano: 2010,
+    favorito: true,
+    naWatchlist: false,
+    watched: false,
+    avaliacao: null,
+  },
+  {
+    id: 4,
+    titulo: "The Fast and the Furious: Tokyo Drift",
+    poster: tokyoImg,
+    diretor: "Justin Lin",
+    ano: 2006,
+    favorito: true,
+    naWatchlist: false,
+    watched: false,
+    avaliacao: null,
+  },
+  {
+    id: 5,
+    titulo: "Invocação do Mal 3",
+    poster: conjuring3Img,
+    diretor: "Michael Chaves",
+    ano: 2021,
+    favorito: false,
+    naWatchlist: true,
+    watched: true,
+    avaliacao: null,
+  },
+  {
+    id: 6,
+    titulo: "Pulp Fiction",
+    poster: pulpImg,
+    diretor: "Quentin Tarantino",
+    ano: 1994,
+    favorito: false,
+    naWatchlist: true,
+    watched: true,
+    avaliacao: null,
+  },
+  {
+    id: 7,
+    titulo: "Era uma Vez em Hollywood",
+    poster: hollywoodImg,
+    diretor: "Quentin Tarantino",
+    ano: 2019,
+    favorito: false,
+    naWatchlist: true,
+    watched: true,
+    avaliacao: null,
+  },
+  {
+    id: 8,
+    titulo: "American Pie",
+    poster: americanImg,
+    diretor: "Paul Weitz",
+    ano: 1999,
+    favorito: false,
+    naWatchlist: true,
+    watched: true,
+    avaliacao: null,
+  },
+  {
+    id: 9,
+    titulo: "A Origem",
+    poster: inceptionImg,
+    diretor: "Christopher Nolan",
+    ano: 2010,
+    favorito: false,
+    naWatchlist: true,
+    watched: true,
+    avaliacao: null,
+  },
+  {
+    id: 10,
+    titulo: "Teenage Mutant Ninja Turtles: Out of the Shadows",
+    poster: turtlesImg,
+    diretor: "Dave Green",
+    ano: 2016,
+    favorito: false,
+    naWatchlist: false,
+    watched: true,
+    avaliacao: {
+      nota: 4,
+      texto: "Muito bommmmmmmmmmmmmmmmmm",
+      autor: "Dave Green",
+      data: "2016-08-22",
+    },
+  },
+  {
+    id: 11,
+    titulo: "Evil Dead",
+    poster: evilImg,
+    diretor: "Fede Álvarez",
+    ano: 2013,
+    favorito: false,
+    naWatchlist: false,
+    watched: true,
+    avaliacao: {
+      nota: 3,
+      texto:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
+      autor: "Fede Álvarez",
+      data: "2015-01-01",
+    },
+  },
+  {
+    id: 12,
+    titulo: "The Others",
+    poster: theothersImg,
+    diretor: "Alejandro Amenábar",
+    ano: 2001,
+    favorito: false,
+    naWatchlist: false,
+    watched: true,
+    avaliacao: {
+      nota: 4,
+      texto: "Muito bommmmmmmmmmmmmmmmmm",
+      autor: "Alejandro Amenábar",
+      data: null,
+    },
+  },
+];
