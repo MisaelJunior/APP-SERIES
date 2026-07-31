@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
 .container{
     width: 100%;
 }
@@ -27,6 +33,7 @@
     border: 1px solid rgba(168, 85, 247, 0.3);
     max-width: 80%; 
     margin: 0 auto;
+    margin-bottom: 1rem;
 }
 .item{
     display: flex;
@@ -62,4 +69,18 @@
     color: #944ED2;
     font-size: 20px;
     cursor: pointer;
+}
+.verMais{
+    border: 1px solid #7223B7;
+    background-color: transparent;
+    color: #7223B7;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 12px 20px;
+}
+.verMenosWrapper{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
 }

@@ -1,10 +1,13 @@
 import styles from "./GridFilmes.module.css";
 import { useState } from "react";
 
-export default function GridFilmes({ titulo, subtitulo, lista, limite = 4}) {
-  const [expandido, setExpandido] = useState(false);
-  const filmesVisiveis = expandido ? lista : lista.slice(0, limite);
-  const temMais = !expandido && lista.length > limite;
+export default function GridFilmes({ titulo, subtitulo, lista, limite = 5}) {
+  const [quantidadeVisivel, setQuantidadeVisivel] = useState(limite);
+  const filmesVisiveis = lista.slice(0, quantidadeVisivel);
+  const temMais = lista.length > quantidadeVisivel;
+  const carregarMais = () => {
+    setQuantidadeVisivel((atual) => atual + limite);
+  }
   return (
     <>
     <div className={styles.container}>
@@ -21,16 +24,16 @@ export default function GridFilmes({ titulo, subtitulo, lista, limite = 4}) {
           ))}
 
           {temMais && (
-            <button className={styles.verMais} onClick={() => setExpandido(true)}>
-              <img src={lista[limite].poster} alt="" className={styles.posterFundo}/>
+            <button className={styles.verMais} onClick={carregarMais}>
+              <img src={lista[quantidadeVisivel].poster} alt={lista[quantidadeVisivel].titulo} className={styles.posterFundo}/>
               <span className={styles.textoVerMais}>Ver mais</span>
             </button>
           )}
 
         </div>
-          {expandido && (
+          {quantidadeVisivel > limite && (
             <div className={styles.verMenosWrapper}>
-              <button className={styles.verMenos} onClick={() => setExpandido(false)}>Ver menos</button>
+              <button className={styles.verMenos} onClick={() => setQuantidadeVisivel(limite)}>Ver menos</button>
             </div>
           )}
     </div>
