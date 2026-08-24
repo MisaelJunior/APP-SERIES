@@ -1,0 +1,82 @@
+.container{
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.listTitle{
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding-left: 4rem;
+    margin-top: 30px;
+    margin-bottom: 16px;
+
+}
+.listName{
+font-size: 30px;
+color: #ffffff;
+}
+.listInfo{
+  font-size: 13px;
+  color: #7223b7;
+  text-decoration: semibold;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    max-width: 80%; 
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+.item{
+    background: #1a0e2e;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 12px 20px;
+    height: 110px;
+}
+.poster{
+    width: 48px;
+    height: 73px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.info{
+    flex: 1;
+    text-align: left;
+}
+.tituloFilme{
+    color: #FFFFFF;
+    font-weight: 600;
+    margin: 0;
+}
+.ano{
+    color: #CAC7C7;
+    font-size: 13px;
+}
+.comentario{
+    font-size: 13px;
+    color: #CAC7C7;
+    margin-top: 4px;
+}
+.detalhes{
+    color: #7223B7;
+    margin: 4px 0 0;
+    font-size: 10px;
+}
+.estrelas{
+    display: flex;
+    gap: 2px;
+}
+.estrelaPreenchida{
+    color: #F5C518;
+}
+.estrelaVazia{
+    color: #CAC7C7;
+}

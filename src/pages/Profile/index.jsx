@@ -7,11 +7,13 @@ import { useState } from "react";
 import GridFilmes from "../../components/GridFilmes";
 import { todosOsFilmes } from "../../data/filmesMock";
 import Watchlist from "../../components/Watchlist";
+import Reviews from "../../components/Reviews";
 
 function Profile() {
   const filmesFavoritos = todosOsFilmes.filter((filme) => filme.favorito);
   const todosOsFilmesAssistidos = todosOsFilmes.filter((filme) => filme.watched);
   const filmesNaWatchlist = todosOsFilmes.filter((filme) => filme.naWatchlist);
+  const filmesAvaliados = todosOsFilmes.filter((filme) => filme.avaliacao !== null);
   const [abaAtiva, setAbaAtiva] = useState("Movies");
   const conteudoPorAba = {
     Movies: (
@@ -38,7 +40,14 @@ function Profile() {
         lista={filmesNaWatchlist}
       />
     ),
-    Ratings: <p>Coming soon...</p>,
+    Ratings: (
+      <Reviews
+        key="ratings"
+        titulo="Minhas Avaliações"
+        subtitulo={`${filmesAvaliados.length} filmes avaliados`}
+        lista={filmesAvaliados}
+      />
+    ),
   };
 
   return (

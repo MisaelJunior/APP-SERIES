@@ -1,7 +1,9 @@
 import styles from "./Watchlist.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Watchlist({ titulo, subtitulo, lista, limite = 10 }) {
+  const navigate = useNavigate();
   const [quantidadeVisivel, setQuantidadeVisivel] = useState(limite);
   const filmesVisiveis = lista.slice(0, quantidadeVisivel);
   const temMais = lista.length > quantidadeVisivel;
@@ -31,7 +33,9 @@ export default function Watchlist({ titulo, subtitulo, lista, limite = 10 }) {
                 </p>
               </div>
 
-              <button className={styles.buttonInfo} /*onClick={PaginaFilme(filme)}*/>ⓘ</button>
+              <button className={styles.buttonInfo} onClick={() => navigate(`/filme/${filme.id}`)}>
+                ⓘ
+              </button>
             </div>
           ))}
         </div>
