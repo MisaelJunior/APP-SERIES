@@ -1,5 +1,3 @@
-import filmesMock from "../data/filmesMock";
-
 const calcularMedia = (avaliacoes) => {
   if (!avaliacoes || avaliacoes.length === 0) {
     return 0;
@@ -12,3 +10,5 @@ const calcularMedia = (avaliacoes) => {
 
   return soma / avaliacoes.length;
 };
+
+export default calcularMedia;
