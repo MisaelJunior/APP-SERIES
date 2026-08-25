@@ -696,3 +696,79 @@ export const todosOsFilmes = [
     ],
   },
 ];
+
+// ---------------------------------------------------------------------
+// Enriquecimento (dados fake) para a página de detalhes do filme.
+// Adiciona elenco, ficha técnica e total de listas apenas se o filme
+// ainda não tiver esses campos, sem alterar o restante do mock.
+// ---------------------------------------------------------------------
+const nomesElenco = [
+  "Leonardo DiCaprio",
+  "Scarlett Johansson",
+  "Robert De Niro",
+  "Al Pacino",
+  "Brad Pitt",
+  "Margot Robbie",
+  "Joaquin Phoenix",
+  "Emma Stone",
+  "Christian Bale",
+  "Natalie Portman",
+  "Tom Hardy",
+  "Cate Blanchett",
+];
+
+const personagensGenericos = [
+  "Papel Principal",
+  "Coadjuvante",
+  "Interesse Amoroso",
+  "Antagonista",
+  "Amigo(a) Próximo(a)",
+  "Personagem Secundário",
+];
+
+const roteiristas = ["Aaron Sorkin", "Charlie Kaufman", "Diablo Cody", "Nicholas Pileggi", "Emma Thomas"];
+const fotografos = ["Roger Deakins", "Emmanuel Lubezki", "Robert Richardson", "Rodrigo Prieto"];
+const trilhasSonoras = ["Hans Zimmer", "Howard Shore", "Thomas Newman", "Alexandre Desplat"];
+const produtoras = ["Warner Bros.", "Universal Pictures", "A24", "Paramount Pictures"];
+
+function gerarElenco(seed) {
+  const elenco = [];
+  for (let i = 0; i < 6; i++) {
+    const nome = nomesElenco[(seed + i) % nomesElenco.length];
+    const personagem = personagensGenericos[(seed + i) % personagensGenericos.length];
+    elenco.push({
+      nome,
+      personagem,
+      foto: `https://ui-avatars.com/api/?name=${encodeURIComponent(nome)}&background=1a0e2e&color=a855f7&bold=true`,
+    });
+  }
+  return elenco;
+}
+
+function gerarFichaTecnica(filme, seed) {
+  return {
+    direcao: filme.diretor,
+    roteiro: roteiristas[seed % roteiristas.length],
+    fotografia: fotografos[seed % fotografos.length],
+    trilhaSonora: trilhasSonoras[seed % trilhasSonoras.length],
+    producao: produtoras[seed % produtoras.length],
+    pais: "Estados Unidos",
+    idioma: "Inglês",
+  };
+}
+
+todosOsFilmes.forEach((filme, index) => {
+  if (!filme.elenco) {
+    filme.elenco = gerarElenco(index);
+  }
+  if (!filme.fichaTecnica) {
+    filme.fichaTecnica = gerarFichaTecnica(filme, index);
+  }
+  if (!filme.totalListas) {
+    filme.totalListas = `${1 + (index % 5)}.${index % 9}k`;
+  }
+  if (!filme.sinopse) {
+    filme.sinopse =
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets.";
+  }
+});

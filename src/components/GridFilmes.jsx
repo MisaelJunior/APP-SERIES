@@ -19,7 +19,28 @@ export default function GridFilmes({ titulo, subtitulo, lista, limite = 5}) {
           {filmesVisiveis.map((filme) => (
             <div key={filme.id} className={styles.card}>
               <img src={filme.poster} alt={filme.titulo} />
-              <p>{filme.titulo}</p>
+              <p className={styles.tituloCard}>{filme.titulo}</p>
+              {(filme.notaMedia || filme.ano) && (
+                <div className={styles.metaCard}>
+                  {filme.notaMedia && (
+                    <span className={styles.estrelasCard}>
+                      {[1, 2, 3, 4, 5].map((posicao) => (
+                        <span
+                          key={posicao}
+                          className={
+                            posicao <= Math.round(filme.notaMedia)
+                              ? styles.estrelaPreenchidaCard
+                              : styles.estrelaVaziaCard
+                          }
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </span>
+                  )}
+                  {filme.ano && <span className={styles.anoCard}>{filme.ano}</span>}
+                </div>
+              )}
             </div>
           ))}
 

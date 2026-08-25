@@ -4,6 +4,12 @@
     box-sizing: border-box;
     color: #FFFFFF;
 }
+
+.pagina {
+  min-height: 100vh;
+  background: #0a0514;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -34,6 +40,9 @@
   color: #ccc;
   font-size: 15px;
 }
+
+/* ---------- Banner ---------- */
+
 .banner {
   position: relative;
   width: 100%;
@@ -56,12 +65,12 @@
   background: linear-gradient(
     to bottom,
     rgba(10, 5, 20, 0.6) 0%,
-    rgba(10, 5, 20, 0.9) 100%
+    rgba(10, 5, 20, 0.95) 100%
   );
 }
 
 .conteudoPrincipal {
-  position: relative; /* fica acima do banner e do gradiente */
+  position: relative;
   display: flex;
   gap: 32px;
   padding: 40px;
@@ -79,7 +88,8 @@
 
 .infoFilme {
   flex: 1;
-  padding-top: 100px;
+  padding-top: 40px;
+  text-align: left;
 }
 
 .generos {
@@ -103,7 +113,7 @@
   margin: 0 0 8px;
 }
 
-.metadados {
+.dados {
   color: #999;
   font-size: 14px;
   margin-bottom: 16px;
@@ -118,4 +128,398 @@
   color: #ccc;
   line-height: 1.6;
   max-width: 600px;
+  margin-bottom: 24px;
+}
+
+/* ---------- Ações (Já Assisti / Watchlist / Favorito) ---------- */
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.botaoAcao {
+  background: #a855f7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #9333ea;
+  }
+}
+
+.botaoAcaoOutline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border 0.2s;
+
+  &:hover {
+    border-color: #a855f7;
+  }
+}
+
+.ativoAcao {
+  border-color: #a855f7;
+  color: #a855f7;
+}
+
+.botaoFavorito {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    border-color: #a855f7;
+    color: #a855f7;
+  }
+}
+
+/* ---------- Container geral abaixo do banner ---------- */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 60px;
+}
+
+/* ---------- Card de avaliação/estatísticas ---------- */
+
+.campoAvaliacoes {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: linear-gradient(135deg, #3a1568, #2a0d4d);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 16px;
+  padding: 28px 40px;
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
+}
+
+.avaliar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.avaliarLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #d8b4fe;
+}
+
+.estrelasClicaveis {
+  display: flex;
+  gap: 4px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.avaliarAjuda {
+  font-size: 12px;
+  color: #c4b5da;
+}
+
+.divisor {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.avaliacoesResumo {
+  display: flex;
+  gap: 48px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.statNumero {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: #e9d5ff;
+}
+
+.statSub {
+  font-size: 11px;
+  color: #a78bda;
+}
+
+/* ---------- Estrelas (compartilhado) ---------- */
+
+.estrelaPreenchida {
+  color: #F5C518;
+}
+
+.estrelaVazia {
+  color: #4b4358;
+}
+
+/* ---------- Conteúdo: comentários + coluna lateral ---------- */
+
+.conteudo {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.comentarios {
+  text-align: left;
+}
+
+.navMenu {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.ulNavMenu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.ulNavMenu li {
+  padding-bottom: 12px;
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.ulNavMenu li.ativo {
+  color: #a855f7;
+  border-bottom-color: #a855f7;
+}
+
+.listaComentarios {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comentarioCard {
+  background: #1a0e2e;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.comentarioHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.comentarioAutor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nomeAutor {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.dataComentario {
+  font-size: 12px;
+  color: #888;
+}
+
+.estrelasComentario {
+  font-size: 13px;
+  display: flex;
+  gap: 2px;
+}
+
+.textoComentario {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.comentarioFooter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.curtidas {
+  font-size: 13px;
+  color: #999;
+}
+
+.responder {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #888;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  cursor: not-allowed;
+}
+
+.semComentarios {
+  color: #888;
+  font-size: 14px;
+}
+
+/* ---------- Coluna lateral: elenco + ficha técnica ---------- */
+
+.dadosFilme {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  text-align: left;
+}
+
+.tituloLateral {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #a855f7;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.listaElenco {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.itemElenco {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fotoElenco {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.nomeAtor {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.personagemAtor {
+  font-size: 12px;
+  color: #a855f7;
+}
+
+.fichaTecnica {
+  background: #1a0e2e;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.tabelaFicha {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linhaFicha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.linhaFicha span:first-child {
+  color: #a855f7;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.linhaFicha span:last-child {
+  color: #ddd;
+  text-align: right;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 900px) {
+  .conteudoPrincipal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .infoFilme {
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .sinopse {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .campoAvaliacoes {
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .divisor {
+    width: 100%;
+    height: 1px;
+  }
+
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
 }
