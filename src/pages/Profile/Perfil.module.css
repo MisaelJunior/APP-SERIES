@@ -1,7 +1,26 @@
 @import "tailwindcss";
 
 *{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  color: #FFFFFF;
+  font-family: "Manrope", sans-serif;
+}
+.logoTitle {
+    font-size: 30px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    text-shadow:
+        1px 0 rgba(255, 255, 255, 0.09),
+        -1px 0 rgba(255, 255, 255, 0.09),
+        0 1px rgba(255, 255, 255, 0.09),
+        0 -1px rgba(255, 255, 255, 0.09);
+
+    span {
+        color: #944ed2;
+    }
 }
 
 .bodyProfile {

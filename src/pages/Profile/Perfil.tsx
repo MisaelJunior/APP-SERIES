@@ -1,21 +1,23 @@
-import styles from "./style.module.css";
+import styles from "./Perfil.module.css";
 import Logo from "../../assets/logo.webp";
 import Banner from "../../assets/banner.png";
 import FotoPerfil from "../../assets/fotoPerfil.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, type ReactElement } from "react";
 import GridFilmes from "../../components/GridFilmes";
 import { todosOsFilmes } from "../../data/filmesMock";
 import Watchlist from "../../components/Watchlist";
 import Reviews from "../../components/Reviews";
 
+type AbaProfile = "Movies" | "Favorites" | "Watchlist" | "Ratings";
+
 function Profile() {
   const filmesFavoritos = todosOsFilmes.filter((filme) => filme.favorito);
   const todosOsFilmesAssistidos = todosOsFilmes.filter((filme) => filme.watched);
   const filmesNaWatchlist = todosOsFilmes.filter((filme) => filme.naWatchlist);
-  const filmesAvaliados = todosOsFilmes.filter((filme) => filme.avaliacao !== null);
-  const [abaAtiva, setAbaAtiva] = useState("Movies");
-  const conteudoPorAba = {
+  const filmesAvaliados = todosOsFilmes.filter((filme) => filme.avaliacoes.length > 0);
+  const [abaAtiva, setAbaAtiva] = useState<AbaProfile>("Movies");
+  const conteudoPorAba: Record<AbaProfile, ReactElement> = {
     Movies: (
       <GridFilmes
         key="movies"
@@ -52,12 +54,12 @@ function Profile() {
 
   return (
     <>
-      <body className={styles.bodyProfile}>
+      <div className={styles.bodyProfile}>
         <header className={styles.headerMenu}>
           <div className={styles.header}>
             <div className={styles.logo}>
               <img className={styles["logo-img"]} src={Logo} alt="Logo" />
-              <h1>AppSeries</h1>
+              <h1 className={styles.logoTitle}>cine<span>frame</span></h1>
             </div>
             <div>
               <nav>
@@ -122,7 +124,7 @@ function Profile() {
         <div>
           {conteudoPorAba[abaAtiva]}
         </div>
-      </body>
+      </div>
     </>
   );
 }
