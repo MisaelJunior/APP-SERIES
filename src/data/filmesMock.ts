@@ -1,3 +1,4 @@
+import type { Filme, Ator, FichaTecnica } from "../types/filme";
 import cassinoImg from "../assets/cassino.png";
 import mulhollandImg from "../assets/mulholland.png";
 import shutterImg from "../assets/shutter.png";
@@ -11,7 +12,7 @@ import turtlesImg from "../assets/turtles.png";
 import evilImg from "../assets/evildead.png";
 import theothersImg from "../assets/theothers.png";
 
-export const todosOsFilmes = [
+export const todosOsFilmes: Filme[] = [
   {
     id: 1,
     titulo: "Cassino",
@@ -697,11 +698,8 @@ export const todosOsFilmes = [
   },
 ];
 
-// ---------------------------------------------------------------------
-// Enriquecimento (dados fake) para a página de detalhes do filme.
-// Adiciona elenco, ficha técnica e total de listas apenas se o filme
-// ainda não tiver esses campos, sem alterar o restante do mock.
-// ---------------------------------------------------------------------
+
+// dados fake para a página de detalhes do filme, adiciona elenco, ficha técnica e total de listas apenas se o filme não tiver esses campos, sem alterar o restante do mock.
 const nomesElenco = [
   "Leonardo DiCaprio",
   "Scarlett Johansson",
@@ -731,8 +729,8 @@ const fotografos = ["Roger Deakins", "Emmanuel Lubezki", "Robert Richardson", "R
 const trilhasSonoras = ["Hans Zimmer", "Howard Shore", "Thomas Newman", "Alexandre Desplat"];
 const produtoras = ["Warner Bros.", "Universal Pictures", "A24", "Paramount Pictures"];
 
-function gerarElenco(seed) {
-  const elenco = [];
+function gerarElenco(seed: number): Ator[] {
+  const elenco: Ator[] = [];
   for (let i = 0; i < 6; i++) {
     const nome = nomesElenco[(seed + i) % nomesElenco.length];
     const personagem = personagensGenericos[(seed + i) % personagensGenericos.length];
@@ -745,7 +743,7 @@ function gerarElenco(seed) {
   return elenco;
 }
 
-function gerarFichaTecnica(filme, seed) {
+function gerarFichaTecnica(filme: Filme, seed: number): FichaTecnica {
   return {
     direcao: filme.diretor,
     roteiro: roteiristas[seed % roteiristas.length],
