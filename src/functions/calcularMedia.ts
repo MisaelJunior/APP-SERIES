@@ -1,4 +1,6 @@
-const calcularMedia = (avaliacoes) => {
+import type { Avaliacao } from "../types/filme";
+
+const calcularMedia = (avaliacoes: Avaliacao[] | undefined | null): number => {
   if (!avaliacoes || avaliacoes.length === 0) {
     return 0;
   }
