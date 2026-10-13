@@ -3,8 +3,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import { todosOsFilmes } from "../../data/filmesMock";
 import { useState } from "react";
 import GridFilmes from "../../components/GridFilmes";
+import type { Avaliacao } from "../../types/filme";
 
-function Estrelas({ nota }) {
+interface EstrelasProps {
+  nota: number;
+}
+
+function Estrelas({ nota }: EstrelasProps) {
   return [1, 2, 3, 4, 5].map((posicao) => (
     <span
       key={posicao}
@@ -16,11 +21,11 @@ function Estrelas({ nota }) {
 }
 
 export default function FilmeDetalhes() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const filme = todosOsFilmes.find((filme) => filme.id === Number(id));
 
-  const [abaAtiva, setAbaAtiva] = useState("Populares");
+  const [abaAtiva, setAbaAtiva] = useState<"Populares" | "Recentes">("Populares");
   const [avaliacaoUsuario, setAvaliacaoUsuario] = useState(0);
   const [hoverAvaliacao, setHoverAvaliacao] = useState(0);
   const [jaAssistiu, setJaAssistiu] = useState(filme?.watched ?? false);
@@ -31,10 +36,10 @@ export default function FilmeDetalhes() {
     return <p>Filme não encontrado.</p>;
   }
 
-  const avaliacoes = filme.avaliacoes ?? [];
+  const avaliacoes: Avaliacao[] = filme.avaliacoes ?? [];
   const comentariosPopulares = [...avaliacoes].sort((a, b) => b.curtidas - a.curtidas);
   const comentariosRecentes = [...avaliacoes].sort(
-    (a, b) => new Date(b.data) - new Date(a.data)
+    (a, b) => new Date(b.data).getTime() - new Date(a.data).getTime()
   );
   const comentariosVisiveis = abaAtiva === "Populares" ? comentariosPopulares : comentariosRecentes;
 
@@ -95,10 +100,10 @@ export default function FilmeDetalhes() {
                 className={`${styles.botaoAcaoOutline} ${naWatchlist ? styles.ativoAcao : ""}`}
                 onClick={() => setNaWatchlist((v) => !v)}
               >
-                🔖 Watchlist
+                {naWatchlist ? "✓ Na Watchlist" : "➕ Adicionar à Watchlist"}
               </button>
               <button
-                className={styles.botaoFavorito}
+                className={`${styles.botaoFavorito} ${favorito ? styles.ativoFavorito : ""}`}
                 onClick={() => setFavorito((v) => !v)}
                 aria-label="Favoritar"
               >

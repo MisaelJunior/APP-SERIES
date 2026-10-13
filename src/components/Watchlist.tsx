@@ -1,8 +1,16 @@
-import styles from "./Comments.module.css";
+import styles from "./Watchlist.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import type { Filme } from "../types/filme";
 
-export default function Watchlist({ titulo, subtitulo, lista, limite = 5 }) {
+interface WatchlistProps {
+  titulo: string;
+  subtitulo: string;
+  lista: Filme[];
+  limite?: number;
+}
+
+export default function Watchlist({ titulo, subtitulo, lista, limite = 10 }: WatchlistProps) {
   const navigate = useNavigate();
   const [quantidadeVisivel, setQuantidadeVisivel] = useState(limite);
   const filmesVisiveis = lista.slice(0, quantidadeVisivel);
@@ -19,7 +27,7 @@ export default function Watchlist({ titulo, subtitulo, lista, limite = 5 }) {
         </div>
         <div className={styles.lista}>
           {filmesVisiveis.map((filme) => (
-            <div className={styles.item}>
+            <div key={filme.id} className={styles.item}>
               <img
                 src={filme.poster}
                 alt={filme.titulo}

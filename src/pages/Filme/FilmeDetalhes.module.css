@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     color: #FFFFFF;
+    font-family: 'Manrope', sans-serif;
 }
 
 .pagina {
@@ -41,7 +42,7 @@
   font-size: 15px;
 }
 
-/* ---------- Banner ---------- */
+/*  Banner  */
 
 .banner {
   position: relative;
@@ -111,6 +112,7 @@
   font-size: 40px;
   color: white;
   margin: 0 0 8px;
+  font-weight: 800;
 }
 
 .dados {
@@ -131,7 +133,7 @@
   margin-bottom: 24px;
 }
 
-/* ---------- Ações (Já Assisti / Watchlist / Favorito) ---------- */
+/* Já Assisti / Watchlist / Favorito*/
 
 .acoes {
   display: flex;
@@ -140,9 +142,9 @@
 }
 
 .botaoAcao {
-  background: #a855f7;
+  background: transparent;
   color: #fff;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 10px 20px;
   border-radius: 8px;
   font-weight: 600;
@@ -151,7 +153,7 @@
   transition: background 0.2s;
 
   &:hover {
-    background: #9333ea;
+    border-color: #a855f7;
   }
 }
 
@@ -172,8 +174,9 @@
 }
 
 .ativoAcao {
+  background: #a955f7a0;
   border-color: #a855f7;
-  color: #a855f7;
+  color: #fff;
 }
 
 .botaoFavorito {
@@ -191,11 +194,16 @@
 
   &:hover {
     border-color: #a855f7;
-    color: #a855f7;
+    color: #ff0000;
   }
 }
+.ativoFavorito {
+  background: transparent;
+  border-color: #a855f7;
+  color: #ff0000;
+}
 
-/* ---------- Container geral abaixo do banner ---------- */
+/*  Container geral  */
 
 .container {
   max-width: 1200px;
@@ -203,7 +211,7 @@
   padding: 0 40px 60px;
 }
 
-/* ---------- Card de avaliação/estatísticas ---------- */
+/* Card avaliação/estatísticas  */
 
 .campoAvaliacoes {
   display: flex;
@@ -277,7 +285,7 @@
   color: #a78bda;
 }
 
-/* ---------- Estrelas (compartilhado) ---------- */
+/* Estrelas */
 
 .estrelaPreenchida {
   color: #F5C518;
@@ -287,7 +295,7 @@
   color: #4b4358;
 }
 
-/* ---------- Conteúdo: comentários + coluna lateral ---------- */
+/* comentários e coluna lateral */
 
 .conteudo {
   display: grid;
@@ -408,7 +416,7 @@
   font-size: 14px;
 }
 
-/* ---------- Coluna lateral: elenco + ficha técnica ---------- */
+/*  Coluna lateral: elenco e ficha técnica */
 
 .dadosFilme {
   display: flex;
@@ -489,7 +497,7 @@
   text-align: right;
 }
 
-/* ---------- Responsivo ---------- */
+/* Responsividade */
 
 @media (max-width: 900px) {
   .conteudoPrincipal {

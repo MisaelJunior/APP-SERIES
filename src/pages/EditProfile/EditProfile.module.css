@@ -1,0 +1,390 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  font-family: 'Manrope', sans-serif;
+}
+
+.pagina {
+  min-height: 100vh;
+  background: #0a0514;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.4);
+}
+
+.headerEsquerda {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.voltar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #a855f7;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  padding-right: 24px;
+  border-right: 1px solid rgba(168, 85, 247, 0.4);
+
+  &:hover {
+    color: #7223b7;
+  }
+}
+
+.tituloHeader {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.headerAcoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.botaoCancelar {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #a855f7;
+  }
+}
+
+.botaoSalvar {
+  background: #a855f7;
+  border: none;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: #9333ea;
+  }
+}
+
+/* ---------- Corpo: sidebar + conteúdo ---------- */
+
+.corpo {
+  display: flex;
+  gap: 32px;
+  padding: 32px 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 360px;
+}
+
+.navSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.itemSidebar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #ccc;
+  text-align: left;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(168, 85, 247, 0.08);
+  }
+}
+
+.itemSidebarAtivo {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: #a855f7;
+  color: #fff;
+}
+
+.sidebarRodape {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.sairConta {
+  background: none;
+  border: none;
+  color: #f87171;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    color: #ef4444;
+  }
+}
+
+.conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: #1a0e2e;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: left;
+}
+
+.tituloCard {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.descricaoCard {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.capaPreview {
+  height: 140px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1e1b4b, #4c0519);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px dashed rgba(168, 85, 247, 0.4);
+}
+
+.capaPlaceholder {
+  font-size: 13px;
+  color: #c4b5da;
+}
+
+.fotoLinha {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatarPreview {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7223b7, #ef4444);
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.trocarFoto {
+  background: transparent;
+  border: 1px solid #a855f7;
+  color: #a855f7;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 6px;
+
+  &:hover {
+    background: rgba(168, 85, 247, 0.1);
+  }
+}
+
+.ajudaFoto {
+  font-size: 11px;
+  color: #888;
+}
+
+/* ---------- Campos de formulário ---------- */
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.campo:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #a855f7;
+  text-transform: uppercase;
+}
+
+.input,
+.inputDesabilitado,
+.textarea {
+  background: #12081f;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #fff;
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+
+  &:focus {
+    border-color: #a855f7;
+  }
+}
+
+.campoSenha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.campoSenha .input {
+  padding-right: 40px;
+}
+
+.toggleSenha {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.6;
+  line-height: 1;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.erroSenha {
+  font-size: 12px;
+  color: #f87171;
+  margin: -6px 0 16px;
+}
+
+.botaoAtualizar {
+  background: #a855f7;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+
+  &:hover {
+    background: #9333ea;
+  }
+}
+
+.sessoesPlaceholder {
+  background: linear-gradient(135deg, #3a1568, #2a0d4d);
+  border-radius: 10px;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a78bda;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.inputDesabilitado {
+  color: #888;
+  cursor: not-allowed;
+}
+
+.textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.ajuda {
+  font-size: 11px;
+  color: #888;
+}
+
+.contadorCaracteres {
+  align-self: flex-end;
+  font-size: 11px;
+  color: #888;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 800px) {
+  .corpo {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: auto;
+  }
+
+  .navSidebar {
+    flex-direction: row;
+  }
+
+  .sidebarRodape {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+}

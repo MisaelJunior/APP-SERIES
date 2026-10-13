@@ -1,7 +1,15 @@
 import styles from "./GridFilmes.module.css";
 import { useState } from "react";
+import type { Filme } from "../types/filme";
 
-export default function GridFilmes({ titulo, subtitulo, lista, limite = 5}) {
+interface GridFilmesProps {
+  titulo: string;
+  subtitulo: string;
+  lista: Filme[];
+  limite?: number;
+}
+
+export default function GridFilmes({ titulo, subtitulo, lista, limite = 5 }: GridFilmesProps) {
   const [quantidadeVisivel, setQuantidadeVisivel] = useState(limite);
   const filmesVisiveis = lista.slice(0, quantidadeVisivel);
   const temMais = lista.length > quantidadeVisivel;
