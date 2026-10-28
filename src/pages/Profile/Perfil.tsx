@@ -1,13 +1,12 @@
 import styles from "./Perfil.module.css";
-import Logo from "../../assets/logo.webp";
 import Banner from "../../assets/banner.png";
 import FotoPerfil from "../../assets/fotoPerfil.png";
-import { Link } from "react-router-dom";
 import { useState, type ReactElement } from "react";
 import GridFilmes from "../../components/GridFilmes";
 import { todosOsFilmes } from "../../data/filmesMock";
 import Watchlist from "../../components/Watchlist";
 import Reviews from "../../components/Reviews";
+import Navbar from "../../components/Navbar";
 
 type AbaProfile = "Movies" | "Favorites" | "Watchlist" | "Ratings";
 
@@ -54,27 +53,8 @@ function Profile() {
 
   return (
     <>
+      <Navbar />
       <div className={styles.bodyProfile}>
-        <header className={styles.headerMenu}>
-          <div className={styles.header}>
-            <div className={styles.logo}>
-              <img className={styles["logo-img"]} src={Logo} alt="Logo" />
-              <h1 className={styles.logoTitle}>cine<span>frame</span></h1>
-            </div>
-            <div>
-              <nav>
-                <ul>
-                  <li>
-                    <Link to="/">Main</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Settings</Link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </header>
         <div className={styles.profileHeader}>
           <img className={styles["banner-img"]} src={Banner} alt="Banner" />
           <img
