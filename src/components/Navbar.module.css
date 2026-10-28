@@ -1,0 +1,126 @@
+.navbar {
+  background: #0d0618;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.4);
+}
+
+.conteudo {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 40px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logoDestaque {
+  color: #a855f7;
+}
+
+.links {
+  display: flex;
+  gap: 8px;
+}
+
+.link {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #aaa;
+  text-decoration: none;
+}
+
+.ativo {
+  background: rgba(168, 85, 247, 0.18);
+  color: #fff;
+}
+
+.desabilitado {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.busca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  max-width: 360px;
+  background: #1a0e2e;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+
+  & input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    font-family: inherit;
+  }
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
+
+.sino {
+  position: relative;
+  background: #1a0e2e;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pontoNotificacao {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a855f7;
+}
+
+.avatarBotao {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #a855f7;
+}
+
+@media (max-width: 800px) {
+  .conteudo {
+    flex-wrap: wrap;
+    padding: 12px 20px;
+  }
+
+  .busca {
+    order: 3;
+    max-width: none;
+    width: 100%;
+  }
+}
