@@ -7,10 +7,12 @@ import { todosOsFilmes } from "../../data/filmesMock";
 import Watchlist from "../../components/Watchlist";
 import Reviews from "../../components/Reviews";
 import Navbar from "../../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
 type AbaProfile = "Movies" | "Favorites" | "Watchlist" | "Ratings";
 
 function Profile() {
+  const navigate = useNavigate();
   const filmesFavoritos = todosOsFilmes.filter((filme) => filme.favorito);
   const todosOsFilmesAssistidos = todosOsFilmes.filter((filme) => filme.watched);
   const filmesNaWatchlist = todosOsFilmes.filter((filme) => filme.naWatchlist);
@@ -69,7 +71,9 @@ function Profile() {
           <p className={styles["profileDescription"]}>
             Gosto de filmes de ação, jubileu está esquisito hoje :)
           </p>
-          <button className={styles["profileEditButton"]}>Edit Profile</button>
+          <button className={styles["profileEditButton"]} onClick={() => navigate("/profile/edit")}>
+            Edit Profile
+          </button>
         </div>
         <div className={styles.content}>
           <div className={styles.stat}>
