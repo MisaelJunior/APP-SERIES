@@ -1,0 +1,468 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+.pagina {
+  min-height: 100vh;
+  background: #0a0514;
+  text-align: left;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.heroFundo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(6px) grayscale(0.6);
+  transform: scale(1.1);
+}
+
+.heroGradiente {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10, 5, 20, 0.55), #0a0514);
+}
+
+.heroConteudo {
+  position: relative;
+  display: flex;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 40px 40px;
+}
+
+.heroPoster {
+  width: 200px;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.heroInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 40px;
+}
+
+.heroRotulo {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.heroTitulo {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.heroMeta {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.heroSinopse {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #ccc;
+  max-width: 480px;
+}
+
+.heroAcoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.generos {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  border: 1px solid #a855f7;
+  color: #a855f7;
+  padding: 2px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ---------- Botões ---------- */
+
+.botaoPrimario {
+  background: #a855f7;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    background: #9333ea;
+  }
+}
+
+.botaoSecundario,
+.botaoSeguir {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #a855f7;
+  }
+}
+
+.botaoSeguir {
+  background: #a855f7;
+  border-color: #a855f7;
+  padding: 4px 12px;
+  font-size: 11px;
+}
+
+.botaoAtivo {
+  background: transparent;
+  border-color: #a855f7;
+  color: #a855f7;
+}
+
+/* ---------- Corpo: principal + sidebar ---------- */
+
+.corpo {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 40px 60px;
+  align-items: start;
+}
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+
+.secaoTopo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.secaoTitulo {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.secaoTopo .secaoTitulo {
+  margin-bottom: 14px;
+}
+
+.verTudo {
+  font-size: 12px;
+  color: #a855f7;
+  cursor: pointer;
+}
+
+/* ---------- Trending ---------- */
+
+.trending {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.trendingCard {
+  text-decoration: none;
+}
+
+.trendingPosterBox {
+  position: relative;
+}
+
+.trendingPoster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.rank {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  min-width: 20px;
+  text-align: center;
+  background: rgba(10, 5, 20, 0.8);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.rankTop {
+  background: #7223b7;
+}
+
+.trendingTitulo {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.trendingNota {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+}
+
+/* ---------- Cards e listas ---------- */
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card {
+  background: #1a0e2e;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.atividadeTopo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.atividadeTexto {
+  flex: 1;
+  font-size: 12px;
+}
+
+.tempo {
+  font-size: 11px;
+  color: #888;
+}
+
+.atividadeCorpo {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatarPequeno {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.miniPoster {
+  width: 40px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.comentario {
+  font-size: 12px;
+  color: #ddd;
+  margin-top: 6px;
+}
+
+.critica {
+  display: flex;
+  gap: 12px;
+}
+
+.criticaInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.criticaTopo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.curtidas {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #999;
+}
+
+/* ---------- Estrelas ---------- */
+
+.estrelas {
+  display: inline-flex;
+  gap: 1px;
+  font-size: 11px;
+}
+
+.estrelaCheia {
+  color: #a855f7;
+}
+
+.estrelaVazia {
+  color: #4b4358;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebarTitulo {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.novidades,
+.sugestoes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.novidade,
+.sugestao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.novidadePoster {
+  width: 32px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.novidadeInfo,
+.sugestaoInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.novidadeTitulo {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 1px 8px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.emCartaz {
+  border: 1px solid #34d399;
+  color: #34d399;
+}
+
+.emBreve {
+  border: 1px solid #fbbf24;
+  color: #fbbf24;
+}
+
+.resumo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.resumoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: #12081f;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+
+  & strong {
+    font-size: 18px;
+  }
+
+  & small {
+    font-size: 9px;
+    color: #999;
+  }
+}
+
+.destaque {
+  color: #a855f7;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.suave {
+  color: #999;
+  font-size: 11px;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 900px) {
+  .corpo {
+    grid-template-columns: 1fr;
+  }
+
+  .heroConteudo {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .heroInfo {
+    padding-top: 0;
+  }
+
+  .trending {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
