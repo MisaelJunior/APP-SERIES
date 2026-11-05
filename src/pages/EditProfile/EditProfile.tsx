@@ -6,6 +6,23 @@ import { useState, useRef, type ChangeEvent } from "react";
 
 const ABA_PERFIL = "Informações do Perfil";
 const ABA_SEGURANCA = "Segurança";
+const ABA_PREFERENCIAS = "Preferências";
+
+const GENEROS_DISPONIVEIS = [
+  "Comédia",
+  "Documentário",
+  "Terror",
+  "Sci-Fi",
+  "Romance",
+  "Animação",
+  "Thriller",
+  "Faroeste",
+  "Noir",
+  "Musical",
+  "Fantasia",
+] as const;
+
+const MAX_GENEROS = 5;
 
 interface PerfilForm {
   nomeCompleto: string;
@@ -14,7 +31,9 @@ interface PerfilForm {
   sobre: string;
   fotoPerfil: string | null;
   capaPerfil: string | null;
+  generosFavoritos: string[];
 }
+
 
 interface SenhaForm {
   senhaAtual: string;
@@ -26,7 +45,9 @@ type MostrarSenhaState = Record<keyof SenhaForm, boolean>;
 
 export default function EditProfile() {
   const navigate = useNavigate();
-  const [abaAtiva, setAbaAtiva] = useState<typeof ABA_PERFIL | typeof ABA_SEGURANCA>(ABA_PERFIL);
+  const [abaAtiva, setAbaAtiva] = useState<
+    typeof ABA_PERFIL | typeof ABA_SEGURANCA | typeof ABA_PREFERENCIAS
+  >(ABA_PERFIL);
 
   const [perfil, setPerfil] = useState<PerfilForm>({
     nomeCompleto: "Misael Junior",
@@ -37,6 +58,7 @@ export default function EditProfile() {
     // capaPerfil: banner,
     fotoPerfil: null,
     capaPerfil: null,
+    generosFavoritos: ["Thriller"],
   });
   const [senha, setSenha] = useState<SenhaForm>({
     senhaAtual: "",
@@ -75,7 +97,7 @@ export default function EditProfile() {
       setErroSenha("As senhas não coincidem.");
       return;
     }
-    // TODO: enviar `senha` para a API
+    // TO-DO: enviar `senha` para a API
     console.log("Atualizando senha:", senha);
     setErroSenha("");
     setSenha({ senhaAtual: "", novaSenha: "", confirmarSenha: "" });
@@ -95,6 +117,35 @@ export default function EditProfile() {
     }
   };
  
+  const alternarGenero = (genero: string) => {
+    const jaSelecionado = perfil.generosFavoritos.includes(genero);
+
+    if (jaSelecionado) {
+      atualizarPerfil(
+        "generosFavoritos",
+        perfil.generosFavoritos.filter((item) => item !== genero)
+      );
+      return;
+    }
+
+    if (perfil.generosFavoritos.length >= MAX_GENEROS) {
+      return;
+    }
+
+    atualizarPerfil("generosFavoritos", [...perfil.generosFavoritos, genero]);
+  };
+
+  const handleExcluirConta = () => {
+    const confirmou = window.confirm(
+      "Tem certeza que deseja excluir sua conta? Essa ação não pode ser desfeita."
+    );
+    if (confirmou) {
+      // TO-DO: chamar a API para excluir a conta
+      console.log("Excluindo conta");
+      navigate("/");
+    }
+  };
+
   const handleSalvar = () => {
     console.log("Salvando perfil:", perfil);
   };
@@ -138,11 +189,22 @@ export default function EditProfile() {
             >
               🛡 Segurança
             </button>
+            <button
+              className={`${styles.itemSidebar} ${
+                abaAtiva === ABA_PREFERENCIAS ? styles.itemSidebarAtivo : ""
+              }`}
+              onClick={() => setAbaAtiva(ABA_PREFERENCIAS)}
+            >
+              ⚙ Preferências
+            </button>
           </nav>
  
           <div className={styles.sidebarRodape}>
             <button className={styles.sairConta} onClick={() => navigate("/")}>
               ↪ Sair da conta
+            </button>
+            <button className={styles.sairConta} onClick={handleExcluirConta}>
+              ✕ Excluir conta
             </button>
           </div>
         </aside>
@@ -346,6 +408,39 @@ export default function EditProfile() {
                 <div className={styles.sessoesPlaceholder}>Em Breve</div>
               </div>
             </>
+          )}
+
+          {abaAtiva === ABA_PREFERENCIAS && (
+            <div className={styles.card}>
+              <h2 className={styles.tituloCard}>Gêneros Favoritos</h2>
+              <p className={styles.descricaoCard}>
+                Selecione até {MAX_GENEROS} gêneros que definem seu gosto. (
+                {perfil.generosFavoritos.length}/{MAX_GENEROS})
+              </p>
+
+              <div className={styles.chips}>
+                {GENEROS_DISPONIVEIS.map((genero) => {
+                  const selecionado = perfil.generosFavoritos.includes(genero);
+                  const limiteAtingido =
+                    perfil.generosFavoritos.length >= MAX_GENEROS && !selecionado;
+
+                  return (
+                    <button
+                      key={genero}
+                      type="button"
+                      className={`${styles.chip} ${
+                        selecionado ? styles.chipAtivo : ""
+                      } ${limiteAtingido ? styles.chipDesabilitado : ""}`}
+                      onClick={() => alternarGenero(genero)}
+                      aria-pressed={selecionado}
+                      disabled={limiteAtingido}
+                    >
+                      {genero}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           )}
         </div>
       </div>

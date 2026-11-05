@@ -142,6 +142,9 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 20px;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .sairConta {
@@ -237,6 +240,44 @@
 
   &:hover {
     background: rgba(168, 85, 247, 0.1);
+  }
+}
+
+/* ---------- Preferências: chips de gênero ---------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  background: transparent;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #ccc;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #a855f7;
+  }
+}
+
+.chipAtivo {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: #a855f7;
+  color: #fff;
+}
+
+.chipDesabilitado {
+  opacity: 0.4;
+  cursor: not-allowed;
+
+  &:hover {
+    border-color: rgba(168, 85, 247, 0.35);
   }
 }
 
@@ -386,5 +427,6 @@
     border-top: none;
     padding-top: 0;
     margin-top: 0;
+    flex-direction: row;
   }
 }
