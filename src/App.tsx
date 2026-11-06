@@ -5,6 +5,8 @@ import Profile from "./pages/Profile/Perfil";
 import Register from "./pages/Register";
 import FilmeDetalhes from "./pages/Filme/FilmeDetalhes";
 import EditProfile from "./pages/EditProfile/EditProfile";
+import Conections from "./pages/Conections/Conections";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
     return (
@@ -15,6 +17,8 @@ function App() {
                 <Route path="/profile/edit" element={<EditProfile />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/filme/:id" element={<FilmeDetalhes />} />
+                <Route path="/profile/conections" element={<Conections />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     );

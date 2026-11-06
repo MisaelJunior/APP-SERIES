@@ -9,9 +9,39 @@
 }
 
 body {
-  min-height: 100vh;
-  width: 100vw;
+  /*min-height: 100vh;*/
   background:  #311749;
   font-family: "Manrope", sans-serif;
   text-align: center;
+}
+
+:root {
+  --scroll-track: #0a0514;
+  --scroll-thumb: #7223b7;
+  --scroll-thumb-hover: #a855f7;
+}
+
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+/* Fallback para navegadores WebKit mais antigos */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 9999px;
+  border: 2px solid var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
 }
